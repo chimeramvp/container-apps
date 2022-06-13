@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:14.0
+    depends_on:
+      - db
+    ports:
+      - "18069:8069"
+    environment:
+    - HOST=db
+    - USER=odoo
+    - PASSWORD=123qwe1
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=123qwe1
+      - POSTGRES_USER=odoo
